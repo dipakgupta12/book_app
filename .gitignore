@@ -1,0 +1,9 @@
+*.sqlite3
+node_modules
+Pipfile.lock
+package-lock.json
+migrations
+bundles
+webpack-stats.json
+.DS_Store
+.magicindex.json
