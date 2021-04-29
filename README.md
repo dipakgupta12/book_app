@@ -1,13 +1,13 @@
 # Book-app
-Steps to set up for a Django project utilizing React.
+Steps to set up for the project.
 
-## Please Follow the each step  
+## Please Follow each step  
 To run project on your machine you will need:
 * [Python 3](https://www.python.org/downloads/)
 * [Pipenv](https://github.com/pypa/pipenv)
 * [NPM](https://www.npmjs.com/get-npm)
 
-Tak Clone the repository and `cd` into the directory.
+Take Clone the repository and `cd` into the directory.
 
 Open a shell and run `pipenv install` to install the necessary Python dependency packages.
 
