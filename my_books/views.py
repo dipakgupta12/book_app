@@ -18,10 +18,15 @@ class MyBookViewSet(viewsets.ModelViewSet):
 
     def list(self, request, *args, **kwargs):
         """To pass onli list of book whose book_author is logged in user."""
-        if self.request.query_params.get("book_author_id", None):
-            self.queryset = self.queryset.filter(
-                book_author=User.objects.get(pk=self.request.query_params.get("book_author_id")))
+        self.queryset = self.queryset.filter(
+            book_author=User.objects.get(id=request.user.id))
         return super().list(request, *args, **kwargs)
+
+    def destroy(self, request, *args, **kwargs):
+        """Delete the book object."""
+        my_book = self.get_object()
+        my_book.delete()
+        return Response(data={'success': True})
 
     @action(detail=False, permission_classes=(AllowAny,), methods=['get'])
     def get_all_book_list(self, request):
@@ -31,6 +36,7 @@ class MyBookViewSet(viewsets.ModelViewSet):
 
     @action(detail=False, permission_classes=(AllowAny,), methods=['get'])
     def profile(self, request):
+        """To get user profile."""
         user = request.user
         serialized_user = UserAuthSerializer(user).data
         return Response({'user': serialized_user })
