@@ -2,7 +2,7 @@
 node_modules
 Pipfile.lock
 package-lock.json
-migrations
+#migrations
 bundles
 webpack-stats.json
 .DS_Store
